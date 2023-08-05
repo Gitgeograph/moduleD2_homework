@@ -56,8 +56,7 @@ best_author = Author.objects.all().order_by("-authorRating")[0]
 print({best_author.authorUser.username: best_author.authorRating})
 
 best_post = Post.objects.filter(categoryType = 'AR').order_by('-rating')[0]
-print(f'{best_post.creationData}, {best_post.author.authorUser.username}, {best_post.rating}, {best_post.title}, {best_post.preview()}')
-Post.objects.filter(categoryType = 'AR').order_by('-rating').values('creationData', 'author__authorUser__username', 'rating', 'title', 'text')[0]
+print(best_post.creationData, best_post.author.authorUser.username, best_post.rating, best_post.title, best_post.preview())
 
 comment = Comment.objects.filter(commentPost = best_post)
 for i in comment:

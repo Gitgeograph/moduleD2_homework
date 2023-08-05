@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models import Sum
-from django.db.models.functions import Left
 
 
 class Author(models.Model):
@@ -74,9 +73,6 @@ class Comment(models.Model):
     rating = models.IntegerField(default=0)
 
     def __str__(self):
-        # try:
-        #     return self.commentPost.author.authorUser.username
-        # except:
         return self.commentUser.username
 
     def like(self):
